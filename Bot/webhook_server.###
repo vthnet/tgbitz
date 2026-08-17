@@ -1,0 +1,49 @@
+from fastapi import FastAPI, Request, HTTPException
+import datetime
+
+from bot_instance import bot
+from database import users_col, txns_col
+from config import RECHARGE_SECRET
+
+app = FastAPI()
+
+
+@app.post("/binance-webhook")
+async def binance_webhook(req: Request):
+    if req.headers.get("X-Auth") != RECHARGE_SECRET:
+        raise HTTPException(status_code=403)
+
+    data = await req.json()
+
+    user_id = int(data["user_id"])
+    usd = float(data["usd"])
+    inr = float(data["inr"])
+    order_id = data["orderId"]
+
+    if txns_col.find_one({"order_id": order_id}):
+        return {"ok": False, "msg": "Duplicate order"}
+
+    txns_col.insert_one({
+        "user_id": user_id,
+        "order_id": order_id,
+        "usd": usd,
+        "credited_amount": inr,
+        "status": "approved",
+        "source": "binance_auto",
+        "created_at": datetime.datetime.utcnow()
+    })
+
+    users_col.update_one(
+        {"_id": user_id},
+        {"$inc": {"balance": inr}}
+    )
+
+    await bot.send_message(
+        user_id,
+        f"✅ <b>Binance Recharge Successful</b>\n\n"
+        f"💵 USDT: {usd}\n"
+        f"💰 Credited: ₹{inr}",
+        parse_mode="HTML"
+    )
+
+    return {"ok": True}
