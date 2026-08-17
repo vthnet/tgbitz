@@ -2,7 +2,7 @@
 #---------- ᴘʀᴏJᴇᴄᴛ - ᴛᴇʟᴇɢʀᴀᴍ ᴀᴜᴛᴏᴍᴀᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛ sᴇʟʟɪɴɢ ʙᴏᴛ (PROVIDER CONFIG)
 #------------------------------------------------------------------------
 
-API_KEY = "ff8dd9933ecc6ff29e565c94b9b32c87aac6"
+API_KEY = "73d378d7da39dc73a5ee814e884aa219cd2e"
 BASE_URL = "https://api.temporasms.com/stubs/handler_api.php"
 
 # Static mappings for operator specific platform system service codes

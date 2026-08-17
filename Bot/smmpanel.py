@@ -71,7 +71,7 @@ def mask_user_id(user_id):
 
 def is_admin(user_id, db):
     admin_doc = db["admins"].find_one({"_id": user_id})
-    return user_id in [8021449673, 7659846392] or admin_doc is not None
+    return user_id in [8021449673, 233444460] or admin_doc is not None
 
 # Global helper to ensure message deletion works if not caught elsewhere
 @router.callback_query(F.data == "delete_msg")

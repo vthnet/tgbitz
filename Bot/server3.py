@@ -30,14 +30,36 @@ class Server3UserState(StatesGroup):
 
 # ================= HTTP Helper Functions =================
 async def fetch_api(params: dict):
-    params["e437846cfb60f9e22fbc1f0083bd6ed487b8"] = provider.API_KEY
+    params["api_key"] = provider.API_KEY
+
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get(provider.BASE_URL, params=params, timeout=15) as resp:
+            async with session.get(
+                provider.BASE_URL,
+                params=params,
+                timeout=aiohttp.ClientTimeout(total=15)
+            ) as resp:
+
+                text = await resp.text()
+
+                print(
+                    f"[Server 3 API] "
+                    f"action={params.get('action')} "
+                    f"status={resp.status} "
+                    f"response={text}"
+                )
+
                 if resp.status == 200:
-                    return await resp.text()
+                    return text
+
+                print(
+                    f"[Server 3 API] HTTP ERROR "
+                    f"{resp.status}: {text}"
+                )
+
     except Exception as e:
-        print(f"Server 3 API Error: {e}")
+        print(f"[Server 3 API] Exception: {e}")
+
     return None
 
 # ================= Handler Registration Function =================

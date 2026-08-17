@@ -27,8 +27,8 @@ from oxapay import create_invoice, check_invoice
 
 # ADMINS
 
-UPI_ID2 = "Valrikchauhan@fam"
-ADMIN_IDS = [8021449673]
+UPI_ID2 = "devanshsingh2@fam"
+ADMIN_IDS = [8021449673, 233444460]
 
 class RechargeState(StatesGroup):
     choose_method = State()
@@ -133,9 +133,10 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
         if settings.get("upi_active", True):
             kb.button(
                 text="UPI (Auto)",
-                callback_data="recharge_auto_upi",
+                callback_data="auto_upi_unavailable",
                 icon_custom_emoji_id="6129680679497111287",
             )
+            ### recharge_auto_upi ###
             kb.button(
                 text="UPI (Manual)",
                 callback_data="recharge_upi",
@@ -155,6 +156,12 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
             )
 
         kb.adjust(2, 2)
+         # Other Source / Owner
+        kb.button(
+            text="Other Source",
+            url="https://t.me/tgbitz_op",
+            icon_custom_emoji_id="5375312095346704820",
+        )
 
         kb.button(
             text="Back",
@@ -163,7 +170,7 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
             style="danger",
         )
 
-        kb.adjust(2, 2, 1)
+        kb.adjust(2, 2, 1, 1)
 
         text = '<tg-emoji emoji-id="5409078930659357770">❌</tg-emoji> <b>Add Balance</b>\n\nChoose a payment method:'
 
@@ -418,12 +425,7 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
     
     @dp.callback_query(F.data == "recharge_auto_upi")
     async def recharge_auto_upi(cq: CallbackQuery, state: FSMContext):
-
-        await cq.answer(
-        "⚠️ UPI Auto is currently unavailable.\n\nPlease use UPI Manual for now.",
-        show_alert=True,
-        )
-        return
+        
         await cq.message.delete()
         msg = await cq.message.answer("💰 Enter amount to recharge (Min: ₹5):")
         await state.update_data(last_msg=msg.message_id)
@@ -1042,3 +1044,11 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
 
         await cq.message.edit_caption(caption=cq.message.caption + "\n\n❌ DECLINED", parse_mode="None")
         await cq.answer("Declined")
+
+    @dp.callback_query(F.data == "auto_upi_unavailable")
+    async def auto_upi_unavailable(cq: CallbackQuery):
+        await cq.answer(
+        "⚠️ Auto UPI is currently unavailable.\n\n"
+        "Please use UPI (Manual) instead.",
+        show_alert=True
+    )

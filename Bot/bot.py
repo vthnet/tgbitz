@@ -852,14 +852,14 @@ async def cmd_start(m: Message, state: FSMContext):
             InlineKeyboardButton(text="Buy Account", callback_data="buy", icon_custom_emoji_id="5262747715552438702")
         ],
         [
-            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612", style="success")
+            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612")
         ],
         [
             InlineKeyboardButton(text="Other Services", callback_data="feature_smm_inapp", icon_custom_emoji_id="6296218646284863141"),
             InlineKeyboardButton(text="SMM-Panel", callback_data="feature_smm_external", icon_custom_emoji_id="5389057356493511934")
         ],
         [
-            InlineKeyboardButton(text="Read & Generate Sessions", callback_data="rcsessions", icon_custom_emoji_id="5463122435425448565", style="success")
+            InlineKeyboardButton(text="Read & Generate Sessions", callback_data="rcsessions", icon_custom_emoji_id="5463122435425448565")
         ],
         [
             InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
@@ -948,7 +948,7 @@ async def back_main(cq: CallbackQuery):
             InlineKeyboardButton(text="Buy Account", callback_data="buy", icon_custom_emoji_id="5262747715552438702")
         ],
         [
-            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612", style="success")
+            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612")
         ],
         [
             InlineKeyboardButton(text="Other Services", callback_data="feature_smm_inapp", icon_custom_emoji_id="6296218646284863141"),
@@ -956,7 +956,7 @@ async def back_main(cq: CallbackQuery):
             
         ],
         [
-            InlineKeyboardButton(text="Read & Generate Sessions", callback_data="rcsessions", icon_custom_emoji_id="5463122435425448565", style="success")
+            InlineKeyboardButton(text="Read & Generate Sessions", callback_data="rcsessions", icon_custom_emoji_id="5463122435425448565")
         ],
         [
             InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
@@ -1187,7 +1187,7 @@ async def send_country_menu(cq: CallbackQuery, page: int = 0, search_query: str 
         f"◍ <b><u>Total balance</u>:</b> {Balance}\n"
         f"◍ <b><u>Server</u>:</b> Server (1)\n"
         f"◍ <b><u>Page</u>:</b> {page+1} of {total_pages}\n"
-        f"✅ <a href='https://t.me/+5Ks22dOZPhAwOWM1'>Successful Purchases</a>\n"
+        f"✅ <a href='https://t.me/tgbitz_log'>Successful Purchases</a>\n"
         f"➖➖➖➖➖➖➖➖➖➖➖"
     )
 
@@ -2318,7 +2318,7 @@ async def process_sc_zip(msg: Message, state: FSMContext):
     # Cleanup temp directory
     shutil.rmtree(base_dir, ignore_errors=True)
     await state.clear()
-
+SESS_COUNTRIES_PER_PAGE = 8
 async def send_session_country_menu(cq: CallbackQuery, page: int = 0):
     await cq.answer()
     
