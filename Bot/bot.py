@@ -2723,7 +2723,7 @@ async def callback_sess_execute(cq: CallbackQuery, state: FSMContext):
         f"<b>👤 User:</b> @{buyer_name} (<code>{user_id}</code>)\n"
         f"<b>💰 Rem. Balance:</b> {fmt_curr(new_bal)}"
     )
-    await bot.send_message(-1003208353049, admin_log, parse_mode="HTML")
+    await bot.send_message(-1004492615113, admin_log, parse_mode="HTML")
 
     channel_log = (
         f"<pre><u>✅ <b>New Bulk Session Sold</b></u></pre>\n\n"
@@ -2732,7 +2732,7 @@ async def callback_sess_execute(cq: CallbackQuery, state: FSMContext):
         f"➖ <b><u>Application:</u> Теlegгам 🍷</b>\n\n"
         f"<b>• @tgbitz_bot || @tgbitz</b>"
     )
-    await bot.send_message(-1003556561609, channel_log, parse_mode="HTML", reply_markup=buy_button)
+    await bot.send_message(-1004484806488, channel_log, parse_mode="HTML", reply_markup=buy_button)
 
     buy_button = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="• Buy Sessions Now •", url="https://t.me/tgbitz_bot?start=starting")]
@@ -2900,8 +2900,8 @@ async def process_custom_2fa_password(msg: Message, state: FSMContext):
     ])
     
     try:
-        await bot.send_message(-1003556561609, channel_log, parse_mode="HTML", reply_markup=buy_button)
-        await bot.send_message(-1003208353049, admin_log, parse_mode="HTML")
+        await bot.send_message(-1004484806488, channel_log, parse_mode="HTML", reply_markup=buy_button)
+        await bot.send_message(-1004492615113, admin_log, parse_mode="HTML")
     except Exception as e:
         print(f"Log Error: {e}")
 

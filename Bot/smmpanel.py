@@ -747,7 +747,7 @@ async def ext_smm_execute(cq: CallbackQuery, state: FSMContext, db):
 
         try:
             await cq.bot.send_message(
-                chat_id=-1003349993686, 
+                chat_id=-1004484806488, 
                 text=public_log_text, 
                 parse_mode="HTML", 
                 reply_markup=public_kb.as_markup()
@@ -761,7 +761,7 @@ async def ext_smm_execute(cq: CallbackQuery, state: FSMContext, db):
         await status_msg.edit_text(f"❌ <b>Order Failed:</b> {error_msg}\n<i>No balance was deducted.</i>", parse_mode="HTML")
         
         try:
-            await cq.bot.send_message(-1003208353049, f"⚠️ <b>PANEL ERROR:</b>\nFailed to place order for User <code>{user_id}</code>.\nReason: {error_msg}", parse_mode="HTML")
+            await cq.bot.send_message(-1004492615113, f"⚠️ <b>PANEL ERROR:</b>\nFailed to place order for User <code>{user_id}</code>.\nReason: {error_msg}", parse_mode="HTML")
         except: 
             pass
 

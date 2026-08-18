@@ -61,8 +61,8 @@ class Server2Admin(StatesGroup):
 
 
 # ================= Configuration =================
-SALESLOG = "-1003349993686"
-ADMINLOG = "-1003208353049"
+SALESLOG = "-1004484806488"
+ADMINLOG = "-1004492615113"
 COUNTRIES_PER_PAGE = 24  # 24 countries per page
 COUNTRIES_PER_ROW = 2    # 2 countries per row
 

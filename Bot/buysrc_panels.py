@@ -29,8 +29,8 @@ def register_buysrc_panels_handlers(dp, bot, db, users_col, is_admin_func, fmt_c
     panels_col = db["panels"]
     
     # Log Channels
-    SALESLOG = "-1003349993686"
-    ADMINLOG = "-1003208353049"
+    SALESLOG = "-1004484806488"
+    ADMINLOG = "-1004492615113"
 
     # ================= ADMIN COMMANDS: SOURCE CODES =================
 

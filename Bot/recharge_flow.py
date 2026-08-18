@@ -133,7 +133,7 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
         if settings.get("upi_active", True):
             kb.button(
                 text="UPI (Auto)",
-                callback_data="auto_upi_unavailable",
+                callback_data="recharge_auto_upi",
                 icon_custom_emoji_id="6129680679497111287",
             )
             ### recharge_auto_upi ###
@@ -578,8 +578,8 @@ def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, setting
             return
 
         # Prepare API URL
-        mail = "Mohinisharma456e4@gmail"
-        apppass = "gxihciotklhjyblm"
+        mail = "haiu38716@gmail"
+        apppass = "yfmimuuvmhrskxed"
         if utr_input.startswith("FMP"):
             api_url = f"https://subdict.qzz.io/check?mail={mail}&apppass={apppass}&txnid={utr_input}&amount={amount}"
         else:

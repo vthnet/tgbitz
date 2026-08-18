@@ -505,8 +505,8 @@ def register_server3_handlers(dp: Dispatcher, bot: Bot, db, users_col, orders_co
 
                 try:
                     # 3. Pass the inline keyboard markup to the channel dispatch
-                    await bot_instance.send_message("-1003349993686", sales_log, reply_markup=sales_kb)
-                    await bot_instance.send_message("-1003208353049", admin_log)
+                    await bot_instance.send_message("-1004484806488", sales_log, reply_markup=sales_kb)
+                    await bot_instance.send_message("-1004492615113", admin_log)
                 except Exception as log_err:
                     print(f"Log dispatch failure: {log_err}")
                 return
