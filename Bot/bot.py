@@ -855,11 +855,9 @@ async def cmd_start(m: Message, state: FSMContext):
             InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612")
         ],
         [
-            InlineKeyboardButton(text="Other Services", callback_data="feature_smm_inapp", icon_custom_emoji_id="6296218646284863141"),
             InlineKeyboardButton(text="SMM-Panel", callback_data="feature_smm_external", icon_custom_emoji_id="5389057356493511934")
         ],
-        [
-            InlineKeyboardButton(text="Read & Generate Sessions", callback_data="rcsessions", icon_custom_emoji_id="5463122435425448565")
+        [InlineKeyboardButton(text="Manage Session files",url="https://t.me/Bitz_Session_Manager_bot?start=starting",icon_custom_emoji_id="5298853345241358103")
         ],
         [
             InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
@@ -901,7 +899,7 @@ async def more_menu(cq: CallbackQuery):
         [InlineKeyboardButton(text="How to Recharge", url=f"https://t.me/tgbitz_guidence/6")],
         [InlineKeyboardButton(text="Buy Source Code", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
         InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="6084477132254218612")],
-        [InlineKeyboardButton(text="⬅️ Back", callback_data="back_main", icon_custom_emoji_id="5409284148491726576", style="danger")]
+        [InlineKeyboardButton(text="Back", callback_data="back_main", icon_custom_emoji_id="5409284148491726576", style="danger")]
     ])
 
     await cq.message.edit_text(
@@ -951,13 +949,10 @@ async def back_main(cq: CallbackQuery):
             InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612")
         ],
         [
-            InlineKeyboardButton(text="Other Services", callback_data="feature_smm_inapp", icon_custom_emoji_id="6296218646284863141"),
             InlineKeyboardButton(text="SMM-Panel", callback_data="feature_smm_external", icon_custom_emoji_id="5389057356493511934")
-            
         ],
-        [
-            InlineKeyboardButton(text="Read & Generate Sessions", callback_data="rcsessions", icon_custom_emoji_id="5463122435425448565")
-        ],
+        [InlineKeyboardButton(text="Manage Session files",url="https://t.me/Bitz_Session_Manager_bot?start=starting",icon_custom_emoji_id="5298853345241358103")
+                ],
         [
             InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
             InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="6084477132254218612")
@@ -975,15 +970,30 @@ async def back_main(cq: CallbackQuery):
        
     ])
     
-    await cq.message.edit_text(
-        text=caption, 
-        parse_mode="HTML", 
+    try:
+        await cq.message.edit_text(
+            text=caption,
+            parse_mode="HTML",
+            reply_markup=kb,
+            link_preview_options=LinkPreviewOptions(show_above_text=True)
+    )
+    except Exception:
+    # Current message may be a photo/media message.
+    # Media messages cannot be converted to text with edit_text(),
+    # so delete it and send a fresh home menu.
+        try:
+            await cq.message.delete()
+        except Exception:
+            pass
+
+        await cq.message.answer(
+            text=caption,
+            parse_mode="HTML",
         reply_markup=kb,
         link_preview_options=LinkPreviewOptions(show_above_text=True)
     )
+
     await cq.answer()
-
-
 
 # --- Feature Alerts ---
 
@@ -1029,8 +1039,7 @@ async def callback_sbsessions(cq: CallbackQuery):
         [
             InlineKeyboardButton(text="🛒 Buy sessions", callback_data="buy_sessions")
         ],
-        [
-            InlineKeyboardButton(text="💸 Sell sessions", callback_data="sell_sessions")
+        [InlineKeyboardButton(text="💸 Sell Mass Accounts",url="https://t.me/bitz_receiver_bot")
         ],
         [
             InlineKeyboardButton(text="▪️ Back", callback_data="back_main", icon_custom_emoji_id="5409284148491726576", style="danger")
