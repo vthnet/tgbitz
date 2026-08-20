@@ -491,7 +491,7 @@ async def otp_listener(number_doc, user_id, message_id):
             
 
             await bot.send_message(
-                "-1003349993686",
+                "-1004484806488",
                 channel_message,
                 parse_mode="HTML",
                 reply_markup=buy_button
@@ -519,7 +519,7 @@ async def otp_listener(number_doc, user_id, message_id):
             )
 
             await bot.send_message(
-                "-1003208353049",
+                "-1004492615113",
                 admin_message,
                 parse_mode="HTML",
                 reply_markup=userbutton
