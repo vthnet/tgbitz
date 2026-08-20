@@ -852,7 +852,7 @@ async def cmd_start(m: Message, state: FSMContext):
             InlineKeyboardButton(text="Buy Account", callback_data="buy", icon_custom_emoji_id="5262747715552438702")
         ],
         [
-            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612")
+            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="5271555739993782035")
         ],
         [
             InlineKeyboardButton(text="SMM-Panel", callback_data="feature_smm_external", icon_custom_emoji_id="5389057356493511934")
@@ -860,8 +860,8 @@ async def cmd_start(m: Message, state: FSMContext):
         [InlineKeyboardButton(text="Manage Session files",url="https://t.me/Bitz_Session_Manager_bot?start=starting",icon_custom_emoji_id="5298853345241358103")
         ],
         [
-            InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
-            InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="6084477132254218612")
+            InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="5271555739993782035"),
+            InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="5271555739993782035")
         ],
         [
             InlineKeyboardButton(text="Recharge", callback_data="recharge", icon_custom_emoji_id="5201873447554145566"),
@@ -946,7 +946,7 @@ async def back_main(cq: CallbackQuery):
             InlineKeyboardButton(text="Buy Account", callback_data="buy", icon_custom_emoji_id="5262747715552438702")
         ],
         [
-            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="6084477132254218612")
+            InlineKeyboardButton(text="Buy & Sell Sessions", callback_data="sbsessions", icon_custom_emoji_id="5271555739993782035")
         ],
         [
             InlineKeyboardButton(text="SMM-Panel", callback_data="feature_smm_external", icon_custom_emoji_id="5389057356493511934")
@@ -954,8 +954,8 @@ async def back_main(cq: CallbackQuery):
         [InlineKeyboardButton(text="Manage Session files",url="https://t.me/Bitz_Session_Manager_bot?start=starting",icon_custom_emoji_id="5298853345241358103")
                 ],
         [
-            InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="6084477132254218612"),
-            InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="6084477132254218612")
+            InlineKeyboardButton(text="Source Codes", callback_data="buy_src_menu", icon_custom_emoji_id="5271555739993782035"),
+            InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="5271555739993782035")
         ],
         
         [
