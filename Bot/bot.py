@@ -864,7 +864,7 @@ async def cmd_start(m: Message, state: FSMContext):
             InlineKeyboardButton(text="Buy Panels", callback_data="buy_panel_menu", icon_custom_emoji_id="6084477132254218612")
         ],
         [
-            InlineKeyboardButton(text="Top-up", callback_data="recharge", icon_custom_emoji_id="5201873447554145566"),
+            InlineKeyboardButton(text="Recharge", callback_data="recharge", icon_custom_emoji_id="5201873447554145566"),
             InlineKeyboardButton(text="Profile", callback_data="stats", icon_custom_emoji_id="6014823049159773944")
         ],
         [
@@ -959,7 +959,7 @@ async def back_main(cq: CallbackQuery):
         ],
         
         [
-            InlineKeyboardButton(text="Top-up", callback_data="recharge", icon_custom_emoji_id="5201873447554145566"),
+            InlineKeyboardButton(text="Recharge", callback_data="recharge", icon_custom_emoji_id="5201873447554145566"),
             InlineKeyboardButton(text="Profile", callback_data="stats", icon_custom_emoji_id="6014823049159773944")
         ],
         [
