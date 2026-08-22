@@ -16,7 +16,7 @@ from bson.objectid import ObjectId
 router = Router()
 
 # API Configuration
-API_KEY = "1ecbe38e187c39497fb30ea3a2946435"
+API_KEY = "e5ec7c175a3589da986b7aed0f4a9b8b"
 API_URL = "https://cheapestsmmpanels.com/api/v2"
 
 # Anti-spam cache
